@@ -1,0 +1,9 @@
+subprojects{
+    apply{
+        plugin("java-library")
+    }
+    dependencies{
+        compileOnly("org.projectlombok:lombok")
+        annotationProcessor("org.projectlombok:lombok")
+    }
+}

@@ -1,0 +1,14 @@
+[versions]
+springboot = "3.0.5"
+springcloud = "2022.0.1"
+springcloudalibaba = "2022.0.0.0-RC1"
+springdoc-openapi-ui = "1.7.0"
+hikaricp = "5.0.1"
+fastjson2 = "2.0.26"
+
+[libraries]
+hikaricp = {group = "com.zaxxer",name="HikariCP", version.ref = "hikaricp" }
+springdoc-openapi-ui = {group = "org.springdoc",name="springdoc-openapi-ui", version.ref = "springdoc-openapi-ui" }
+fastjson2 = {group = "com.alibaba.fastjson2",name="fastjson2", version.ref = "fastjson2" }
+
+[plugins]
