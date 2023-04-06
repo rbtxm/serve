@@ -14,6 +14,10 @@ subprojects{
         plugin("org.springframework.boot")
         plugin("io.spring.dependency-management")
     }
+    repositories {
+        google()
+        mavenCentral()
+    }
 
     // 配置项目信息
     group = "com.rbtxm"

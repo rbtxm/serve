@@ -11,18 +11,14 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
-/**
- * @Author: guanxiangkai
- * @Description:
- * @Data: 2023年03月29日 周三 14时58分03秒
- **/
+
 @Slf4j
 @Aspect
 @Component
 public class RedisSourceAspect {
 
     @Resource
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String,Object> redisTemplate;
 
     @Pointcut("@annotation(com.rbtxm.redis.annotation.RedisSource)")
     public void redisPointCut() {

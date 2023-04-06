@@ -6,11 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
 
-/**
- * @Author: guanxiangkai
- * @Description:
- * @Data: 2023年03月29日 周三 16时33分23秒
- **/
 @Data
 @Component
 @ConfigurationProperties(prefix = "spring.redis")

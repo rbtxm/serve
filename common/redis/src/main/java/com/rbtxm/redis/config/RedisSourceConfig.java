@@ -16,11 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-/**
- * @Author: GUAN XIANGKAI
- * @Description:
- * @Data: 2023年03月29日 周三 16时10分12秒
- **/
+
 @Slf4j
 @Configuration
 @EnableAspectJAutoProxy

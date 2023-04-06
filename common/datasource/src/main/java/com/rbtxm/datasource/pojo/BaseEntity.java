@@ -10,11 +10,6 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.UUID;
 
-/**
- * @Author: guanxiangkai
- * @Description:
- * @Data: 2023年03月31日 周五 19时24分15秒
- **/
 @Data
 @MappedSuperclass
 public class BaseEntity implements Serializable {

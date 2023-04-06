@@ -19,11 +19,6 @@ import java.util.List;
 import java.util.Map;
 
 
-/**
- * @Author: guanxiangkai
- * @Description:  swagger配置服务:读取gateway的路由配置，截取服务前缀
- * @Data: 2023年04月01日 周六 15时30分37秒
- **/
 @Configuration
 public class SpringDocConfiguration {
 
@@ -52,24 +47,20 @@ public class SpringDocConfiguration {
     private List<Server> servers(){
         List<Server> servers = new LinkedList<>();
         Map<String, DocProperties.ServerProperty> serverPropertyMap = docProperties.getServers().getServerPropertyMap();
-        serverPropertyMap.forEach((k,v)->{
-            servers.add(new Server()
-                    .url(v.getPath())
-                    .description(v.getDescription())
-            );
-        });
+        serverPropertyMap.forEach((k,v)-> servers.add(new Server()
+                .url(v.getPath())
+                .description(v.getDescription())
+        ));
         return servers;
     };
 
     private List<Tag> tags(){
         List<Tag> tags = new LinkedList<>();
         Map<String, DocProperties.TagProperty> tagPropertyMap = docProperties.getTags().getTagPropertyMap();
-        tagPropertyMap.forEach((k,v)->{
-            tags.add(new Tag()
-                    .name(v.getName())
-                    .description(v.getDescription())
-            );
-        });
+        tagPropertyMap.forEach((k,v)-> tags.add(new Tag()
+                .name(v.getName())
+                .description(v.getDescription())
+        ));
         return tags;
     };
 

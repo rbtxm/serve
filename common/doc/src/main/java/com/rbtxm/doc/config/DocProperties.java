@@ -6,11 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-/**
- * @Author: guanxiangkai
- * @Description:
- * @Data: 2023年04月04日 周二 11时01分49秒
- **/
+
 @Data
 @Component
 @ConfigurationProperties(prefix = "spring.doc")

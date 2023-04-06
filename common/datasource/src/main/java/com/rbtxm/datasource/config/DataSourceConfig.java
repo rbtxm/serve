@@ -12,11 +12,7 @@ import org.springframework.transaction.jta.JtaTransactionManager;
 
 import java.util.*;
 
-/**
- * @Author: guanxiangkai
- * @Description:
- * @Data: 2023年03月29日 周三 16时10分12秒
- **/
+
 @Slf4j
 @Configuration
 @EnableAspectJAutoProxy
@@ -30,9 +26,7 @@ public class DataSourceConfig {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         LinkedHashMap<String, DataSourceProperties.DataSourceProperty> dataSources = dataSourceProperties.getDataSources();
         Map<Object, Object> dataSourceMap = new HashMap<>();
-        dataSources.forEach((k, v) -> {
-            dataSourceMap.put(k, DataSourceBuilder.create().url(v.getUrl()).username(v.getUsername()).password(v.getPassword()).build());
-        });
+        dataSources.forEach((k, v) -> dataSourceMap.put(k, DataSourceBuilder.create().url(v.getUrl()).username(v.getUsername()).password(v.getPassword()).build()));
         dynamicDataSource.setTargetDataSources(dataSourceMap);
         // 默认选中第一个数据源
         String firstKey = dataSources.keySet().iterator().next();
