@@ -12,7 +12,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "classroom-serve"
+rootProject.name = "serve"
 include("gateway")
 include("auth")
 include("common")
