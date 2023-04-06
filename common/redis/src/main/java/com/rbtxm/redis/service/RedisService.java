@@ -15,9 +15,13 @@ import java.util.concurrent.TimeUnit;
  * @since 2023年04月06日  19时19分28秒
  **/
 public class RedisService {
+    private RedisTemplate redisTemplate;
 
-    @Resource
-    private RedisTemplate<String,Object> redisTemplate;
+    public RedisService(RedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
+
+
 
     /**
      * 缓存基本的对象，Integer、String、实体类等
@@ -62,7 +66,7 @@ public class RedisService {
      * @return true=设置成功；false=设置失败
      */
     public boolean expire(final String key, final long timeout, final TimeUnit unit) {
-        return Boolean.TRUE.equals(redisTemplate.expire(key, timeout, unit));
+        return redisTemplate.expire(key, timeout, unit);
     }
 
     /**
@@ -71,12 +75,9 @@ public class RedisService {
      * @param key Redis键
      * @return 有效时间
      */
-    public long getExpire(final String key) {
-        Optional<Long> expire = Optional.ofNullable(redisTemplate.getExpire(key));
-        if(expire.isPresent()){
-            return expire.get();
-        }
-            return 0;
+    public long getExpire(final String key)
+    {
+        return redisTemplate.getExpire(key);
     }
 
     /**
@@ -97,7 +98,7 @@ public class RedisService {
      * @return 缓存键值对应的数据
      */
     public <T> T getCacheObject(final String key) {
-        ValueOperations<String, T> operation = (ValueOperations<String, T>) redisTemplate.opsForValue();
+        ValueOperations<String, T> operation = redisTemplate.opsForValue();
         return operation.get(key);
     }
 
@@ -108,7 +109,7 @@ public class RedisService {
      */
     public boolean deleteObject(final String key)
     {
-        return Boolean.TRUE.equals(redisTemplate.delete(key));
+        return redisTemplate.delete(key);
     }
 
     /**
@@ -142,7 +143,7 @@ public class RedisService {
      */
     public <T> List<T> getCacheList(final String key)
     {
-        return (List<T>) redisTemplate.opsForList().range(key, 0, -1);
+        return redisTemplate.opsForList().range(key, 0, -1);
     }
 
     /**
@@ -153,9 +154,11 @@ public class RedisService {
      * @return 缓存数据的对象
      */
     public <T> BoundSetOperations<String, T> setCacheSet(final String key, final Set<T> dataSet) {
-        BoundSetOperations<String, T> setOperation = (BoundSetOperations<String, T>) redisTemplate.boundSetOps(key);
-        for (T t : dataSet) {
-            setOperation.add(t);
+        BoundSetOperations<String, T> setOperation = redisTemplate.boundSetOps(key);
+        Iterator<T> it = dataSet.iterator();
+        while (it.hasNext())
+        {
+            setOperation.add(it.next());
         }
         return setOperation;
     }
@@ -168,7 +171,7 @@ public class RedisService {
      */
     public <T> Set<T> getCacheSet(final String key)
     {
-        return (Set<T>) redisTemplate.opsForSet().members(key);
+        return redisTemplate.opsForSet().members(key);
     }
 
     /**
@@ -189,7 +192,7 @@ public class RedisService {
      * @param key
      * @return
      */
-    public <T> Map<Object, Object> getCacheMap(final String key)
+    public <T> Map<String, T> getCacheMap(final String key)
     {
         return redisTemplate.opsForHash().entries(key);
     }
@@ -235,7 +238,7 @@ public class RedisService {
      */
     public <T> ZSetOperations.TypedTuple<T> popZsetMaxValue(final String key)
     {
-        return (ZSetOperations.TypedTuple<T>) redisTemplate.opsForZSet().popMax(key);
+        return redisTemplate.opsForZSet().popMax(key);
     }
     /**
      * 弹出分数最低的Zset值，并删除
@@ -245,17 +248,16 @@ public class RedisService {
      */
     public <T> ZSetOperations.TypedTuple<T> popZsetMinValue(final String key)
     {
-        return (ZSetOperations.TypedTuple<T>) redisTemplate.opsForZSet().popMin(key);
+        return redisTemplate.opsForZSet().popMin(key);
     }
 
     /**
      * 弹出分数最低的Zset值，并删除
-     *
      * @param <T>
      * @param key
      * @return
      */
-    public <T> Set<ZSetOperations.TypedTuple<Object>> popZsetMinValue(final String key, Long length)
+    public <T> Set<ZSetOperations.TypedTuple<T>> popZsetMinValue(final String key, Long length)
     {
         return redisTemplate.opsForZSet().popMin(key,length);
     }
@@ -270,7 +272,10 @@ public class RedisService {
     {
         Set<ZSetOperations.TypedTuple<T>> zsetMaxRangeValue = getZsetMaxRangeValue(key,0);
         Optional<ZSetOperations.TypedTuple<T>> max = zsetMaxRangeValue.stream().findAny();
-        return max.orElse(null);
+        if(max.isPresent()) {
+            return max.get();
+        }
+        return null;
     }
     /**
      * 获取score分数最高的值
@@ -406,4 +411,3 @@ public class RedisService {
         return this.redisTemplate;
     }
 }
-
