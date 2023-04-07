@@ -1,6 +1,6 @@
 # 智慧课堂
 ## 1、新建框架
-### gradle8.0.2、jdk17、springboot3.0.4、springcloud2022、springcloudalibabab2022
+### gradle8.0.2、jdk17、spring-boot3.0.4、spring-cloud2022、spring-cloud-alibaba2022
 ### gateway、auth、common、system
 
 ## 2、git提交规范

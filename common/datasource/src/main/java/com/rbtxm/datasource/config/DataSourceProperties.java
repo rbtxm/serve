@@ -13,6 +13,7 @@ import java.util.LinkedHashMap;
 public class DataSourceProperties {
 
     private LinkedHashMap<String, DataSourceProperty> dataSources;
+
     // 父连接配置
 
     @Data

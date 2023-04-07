@@ -10,10 +10,10 @@ spring:
     nacos:
       discovery:
         server-addr: 172.16.20.108:8848
-        namespace: dev-guan
+        namespace: dev
       config:
         server-addr: 172.16.20.108:8848
-        namespace: dev-guan
+        namespace: dev
         file-extension: yml
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
