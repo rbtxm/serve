@@ -15,8 +15,6 @@ import java.util.*;
 
 @Slf4j
 @Configuration
-@EnableAspectJAutoProxy
-@EnableTransactionManagement
 public class DataSourceConfig {
     @Resource
     private DataSourceProperties dataSourceProperties;
@@ -25,7 +23,7 @@ public class DataSourceConfig {
     public DynamicDataSource dynamicDataSource() {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         LinkedHashMap<String, DataSourceProperties.DataSourceProperty> dataSources = dataSourceProperties.getDataSources();
-        Map<Object, Object> dataSourceMap = new HashMap<>();
+        Map<Object, Object> dataSourceMap = new HashMap<>(dataSources.size());
         dataSources.forEach((k, v) -> dataSourceMap.put(k, DataSourceBuilder.create().url(v.getUrl()).username(v.getUsername()).password(v.getPassword()).build()));
         dynamicDataSource.setTargetDataSources(dataSourceMap);
         // 默认选中第一个数据源
