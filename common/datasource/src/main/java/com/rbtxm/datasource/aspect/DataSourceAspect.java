@@ -24,7 +24,7 @@ public class DataSourceAspect {
         DataSource dataSource = signature.getMethod().getAnnotation(DataSource.class);
         DynamicDataSource.setDataSource(dataSource.value());
         try {
-            return point.proceed();
+          return point.proceed();
         } finally {
             DynamicDataSource.clearDataSource();
         }

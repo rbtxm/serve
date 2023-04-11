@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.UUID;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 9823497238749L;
 
     @Id
