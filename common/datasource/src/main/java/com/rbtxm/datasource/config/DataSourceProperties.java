@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
 
-
 @Data
 @Component
 @ConfigurationProperties(prefix = "spring.datasource")
@@ -22,6 +21,5 @@ public class DataSourceProperties {
         private String username;
         private String password;
         // 子连接配置
-
     }
 }

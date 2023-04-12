@@ -6,30 +6,28 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.jta.JtaTransactionManager;
 
 import java.util.*;
-
 
 @Slf4j
 @Configuration
 public class DataSourceConfig {
     @Resource
     private DataSourceProperties dataSourceProperties;
+    @Resource
+    private DynamicDataSource dynamicDataSource;
+    @Resource
+    private DataSourceService dataSourceService;
 
     @Bean
-    public DynamicDataSource dynamicDataSource() {
-        DynamicDataSource dynamicDataSource = new DynamicDataSource();
+    public void dynamicDataSource() {
         LinkedHashMap<String, DataSourceProperties.DataSourceProperty> dataSources = dataSourceProperties.getDataSources();
         Map<Object, Object> dataSourceMap = new HashMap<>(dataSources.size());
         dataSources.forEach((k, v) -> dataSourceMap.put(k, DataSourceBuilder.create().url(v.getUrl()).username(v.getUsername()).password(v.getPassword()).build()));
         dynamicDataSource.setTargetDataSources(dataSourceMap);
-        // 默认选中第一个数据源
         String firstKey = dataSources.keySet().iterator().next();
         dynamicDataSource.setDefaultTargetDataSource(dataSourceMap.get(firstKey));
-        return dynamicDataSource;
     }
 
     @Bean
