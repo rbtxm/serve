@@ -10,5 +10,4 @@ public class AuthApplication {
         SpringApplication.run(AuthApplication.class, args);
         System.out.println("认证授权中心启动成功");
     }
-
 }

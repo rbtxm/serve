@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * @author guanxiangkai
  * @version 1.0
- * @since 2023年04月12日  10时32分53秒
+ * @since 2023年04月12日 10时32分53秒
  **/
 @Getter
 public enum DataSourceTypeEnums {
