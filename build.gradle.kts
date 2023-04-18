@@ -1,11 +1,16 @@
+import org.springframework.boot.gradle.tasks.run.BootRun
+
 @Suppress("DSL_SCOPE_VIOLATION")
 buildscript{
+
     repositories{
         mavenCentral()
     }
+
     dependencies{
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.springboot.get()}")
     }
+
 }
 
 subprojects{
@@ -18,7 +23,6 @@ subprojects{
         google()
         mavenCentral()
     }
-
     // 配置项目信息
     group = "com.rbtxm"
     version = "1.0.0-SNAPSHOT"
@@ -38,6 +42,8 @@ subprojects{
     tasks.withType<Test> {
         useJUnitPlatform()
     }
-    // 动态多数据源配置
-    // 配置分布式事务（多表）
+
+    tasks.named<BootRun>("bootRun") {
+        environment("SPRING_PROFILES_ACTIVE", "dev")
+    }
 }
