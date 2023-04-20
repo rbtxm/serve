@@ -20,7 +20,7 @@ spring:
         namespace: ${spring.profiles.active}
         file-extension: yaml
         shared-configs:
-          - application.${spring.cloud.nacos.config.file-extension}
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
 
 logging:
   file:
