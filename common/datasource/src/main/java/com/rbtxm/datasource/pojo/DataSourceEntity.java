@@ -1,11 +1,18 @@
 package com.rbtxm.datasource.pojo;
 
+import com.rbtxm.core.enums.DeleteStatusEnum;
+import com.rbtxm.core.enums.StatusEnum;
+import com.rbtxm.core.pojo.BaseEntity;
 import com.rbtxm.datasource.enums.DataSourceTypeEnums;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Version;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.io.Serial;
+import java.util.UUID;
+
 
 /**
  * 数据源表
@@ -14,11 +21,14 @@ import java.io.Serial;
  * @since 2023年04月12日  10时18分23秒
  **/
 @Data
-@MappedSuperclass
 @EqualsAndHashCode(callSuper = true)
 public class DataSourceEntity extends BaseEntity  {
-    @Serial
-    private static final long serialVersionUID = 11L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    private StatusEnum status;
 
     private String dataSourceName;
 
@@ -37,5 +47,4 @@ public class DataSourceEntity extends BaseEntity  {
     private String password;
 
     private String className;
-
 }

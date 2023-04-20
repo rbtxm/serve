@@ -13,10 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public enum DeleteStatusEnum {
-
-    YES("是"),
-
-    NO("否");
-
-    private String dec;
+// 删除状态
+    DELETE,
+// 未删除状态
+    NOT_DELETED
 }

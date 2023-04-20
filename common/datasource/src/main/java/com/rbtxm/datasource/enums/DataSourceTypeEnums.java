@@ -9,8 +9,12 @@ import lombok.Getter;
  **/
 @Getter
 public enum DataSourceTypeEnums {
+    // mysql
     MYSQL,
+    // oracle
     ORACLE,
+    // sqlserver
     SQLSERVER,
+    // postgresql
     POSTGRESQL,
 }
