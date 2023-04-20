@@ -1,6 +1,7 @@
 package com.rbtxm.datasource.config;
 
 import com.rbtxm.datasource.DynamicDataSource;
+import com.rbtxm.datasource.config.properties.DataSourceProperties;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -17,8 +18,6 @@ public class DataSourceConfig {
     private DataSourceProperties dataSourceProperties;
     @Resource
     private DynamicDataSource dynamicDataSource;
-    @Resource
-    private DataSourceService dataSourceService;
 
     @Bean
     public void dynamicDataSource() {

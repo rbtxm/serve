@@ -8,9 +8,10 @@ fastjson2 = "2.0.26"
 commonslang3 = "3.12.0"
 
 [libraries]
-hikaricp = {group = "com.zaxxer",name="HikariCP", version.ref = "hikaricp" }
 springdoc-openapi-ui = {group = "org.springdoc",name="springdoc-openapi-ui", version.ref = "springdoc-openapi-ui" }
+hikaricp = {group = "com.zaxxer",name="HikariCP", version.ref = "hikaricp" }
 fastjson2 = {group = "com.alibaba.fastjson2",name="fastjson2", version.ref = "fastjson2" }
 commons-lang3 = {group = "org.apache.commons",name="commons-lang3", version.ref = "commonslang3" }
+
 
 [plugins]

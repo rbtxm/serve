@@ -10,7 +10,6 @@ buildscript{
     dependencies{
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.springboot.get()}")
     }
-
 }
 
 subprojects{

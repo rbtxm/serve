@@ -1,4 +1,4 @@
-package com.rbtxm.datasource.config;
+package com.rbtxm.datasource.config.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,5 +1,5 @@
-var springCloud = libs.versions.springcloud.get()
-var springCloudAlibaba = libs.versions.springcloudalibaba.get()
+var springCloud: String = libs.versions.springcloud.get()
+var springCloudAlibaba: String = libs.versions.springcloudalibaba.get()
 subprojects{
 
     dependencyManagement{
