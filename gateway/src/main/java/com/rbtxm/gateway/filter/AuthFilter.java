@@ -1,6 +1,12 @@
 package com.rbtxm.gateway.filter;
 
+import com.rbtxm.core.constant.CacheConstants;
+import com.rbtxm.core.constant.SecurityConstants;
+import com.rbtxm.core.constant.TokenConstants;
+import com.rbtxm.core.utils.StringUtils;
+import com.rbtxm.gateway.config.properties.IgnoreWhiteProperties;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,22 +20,22 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * 网关鉴权
+ * 全局过滤器
  *
  * @author guanxiangkai
  * @version 1.0
  * @since 2023年04月13日 周四 01时10分15秒
  **/
+@Slf4j
 @Component
 public class AuthFilter implements GlobalFilter, Ordered
 {
-    private static final Logger log = LoggerFactory.getLogger(AuthFilter.class);
 
     // 排除过滤的 uri 地址，nacos自行添加
-    @Resource
+    @Autowired
     private IgnoreWhiteProperties ignoreWhite;
 
-    @Resource
+    @Autowired
     private RedisService redisService;
 
 

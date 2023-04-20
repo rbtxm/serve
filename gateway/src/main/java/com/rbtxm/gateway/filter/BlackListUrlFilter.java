@@ -24,9 +24,9 @@ public class BlackListUrlFilter extends AbstractGatewayFilterFactory<BlackListUr
         return (exchange, chain) -> {
 
             String url = exchange.getRequest().getURI().getPath();
-            if (config.matchBlacklist(url)) {
-                // TODO
-//                return ServletUtils.webFluxResponseWriter(exchange.getResponse(), "请求地址不允许访问");
+            if (config.matchBlacklist(url))
+            {
+                return ServletUtils.webFluxResponseWriter(exchange.getResponse(), "请求地址不允许访问");
             }
 
             return chain.filter(exchange);
@@ -42,7 +42,7 @@ public class BlackListUrlFilter extends AbstractGatewayFilterFactory<BlackListUr
     {
         private List<String> blacklistUrl;
 
-        private final List<Pattern> blacklistUrlPattern = new ArrayList<>();
+        private List<Pattern> blacklistUrlPattern = new ArrayList<>();
 
         public boolean matchBlacklist(String url)
         {
@@ -58,8 +58,9 @@ public class BlackListUrlFilter extends AbstractGatewayFilterFactory<BlackListUr
         {
             this.blacklistUrl = blacklistUrl;
             this.blacklistUrlPattern.clear();
-            this.blacklistUrl.forEach(url -> this.blacklistUrlPattern.add(Pattern.compile(url.replaceAll("\\*\\*", "(.*?)"), Pattern.CASE_INSENSITIVE)));
+            this.blacklistUrl.forEach(url -> {
+                this.blacklistUrlPattern.add(Pattern.compile(url.replaceAll("\\*\\*", "(.*?)"), Pattern.CASE_INSENSITIVE));
+            });
         }
     }
-
 }

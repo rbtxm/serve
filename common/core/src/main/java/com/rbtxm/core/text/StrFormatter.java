@@ -1,5 +1,7 @@
 package com.rbtxm.core.text;
 
+import com.rbtxm.core.utils.StringUtils;
+
 /**
  * 字符串格式化
  *

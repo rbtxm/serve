@@ -1,4 +1,4 @@
 dependencies{
     implementation("org.springframework:spring-core")
-    implementation(libs.commons.lang3)
+    api(libs.commons.lang3)
 }

@@ -1,6 +1,7 @@
 package com.rbtxm.core.utils;
 
-import com.rbtxm.core.constant.Constants;
+import com.rbtxm.core.constant.HttpConstants;
+import com.rbtxm.core.text.StrFormatter;
 import org.springframework.util.AntPathMatcher;
 
 import java.util.Collection;
@@ -292,7 +293,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils{
      */
     public static boolean ishttp(String link)
     {
-        return StringUtils.startsWithAny(link, Constants.HTTP, Constants.HTTPS);
+        return StringUtils.startsWithAny(link, HttpConstants.HTTP, HttpConstants.HTTPS);
     }
 
     /**
@@ -332,10 +333,10 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils{
         }
         StringBuilder sb = new StringBuilder();
         // 前置字符是否大写
-        boolean preCharIsUpperCase = true;
+        boolean preCharIsUpperCase;
         // 当前字符是否大写
-        boolean curreCharIsUpperCase = true;
-        // 下一字符是否大写
+        boolean curreCharIsUpperCase;
+        // 下一个字符是否大写
         boolean nexteCharIsUpperCase = true;
         for (int i = 0; i < str.length(); i++)
         {
@@ -497,7 +498,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils{
      *
      * @param pattern 匹配规则
      * @param url 需要匹配的url
-     * @return
+     * @return 匹配返回true，不匹配返回false
      */
     public static boolean isMatch(String pattern, String url)
     {
@@ -518,7 +519,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils{
      * @param size 字符串指定长度
      * @return 返回数字的字符串格式，该字符串为指定长度。
      */
-    public static final String padl(final Number num, final int size)
+    public static String padl(final Number num, final int size)
     {
         return padl(num.toString(), size, '0');
     }
@@ -531,7 +532,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils{
      * @param c 用于补齐的字符
      * @return 返回指定长度的字符串，由原字符串左补齐或截取得到。
      */
-    public static final String padl(final String s, final int size, final char c)
+    public static String padl(final String s, final int size, final char c)
     {
         final StringBuilder sb = new StringBuilder(size);
         if (s != null)
@@ -539,10 +540,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils{
             final int len = s.length();
             if (s.length() <= size)
             {
-                for (int i = size - len; i > 0; i--)
-                {
-                    sb.append(c);
-                }
+                sb.append(String.valueOf(c).repeat(size - len));
                 sb.append(s);
             }
             else
@@ -552,10 +550,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils{
         }
         else
         {
-            for (int i = size; i > 0; i--)
-            {
-                sb.append(c);
-            }
+            sb.append(String.valueOf(c).repeat(Math.max(0, size)));
         }
         return sb.toString();
     }

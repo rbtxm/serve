@@ -6,12 +6,14 @@ springdoc-openapi-ui = "1.7.0"
 hikaricp = "5.0.1"
 fastjson2 = "2.0.26"
 commonslang3 = "3.12.0"
+springsecurityjwt = "1.1.1.RELEASE"
 
 [libraries]
 springdoc-openapi-ui = {group = "org.springdoc",name="springdoc-openapi-ui", version.ref = "springdoc-openapi-ui" }
 hikaricp = {group = "com.zaxxer",name="HikariCP", version.ref = "hikaricp" }
 fastjson2 = {group = "com.alibaba.fastjson2",name="fastjson2", version.ref = "fastjson2" }
 commons-lang3 = {group = "org.apache.commons",name="commons-lang3", version.ref = "commonslang3" }
+spring-security-jwt = {group="org.springframework.security",name="spring-security-jwt",version.ref="springsecurityjwt"}
 
 
 [plugins]
