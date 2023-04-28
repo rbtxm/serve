@@ -1,4 +1,5 @@
 dependencies{
     implementation(project(":common:core"))
-    implementation(libs.dynamic.datasource.spring.boot.starter)
+    api("org.springframework.boot:spring-boot-starter-data-jpa")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 }
