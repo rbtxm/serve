@@ -16,11 +16,13 @@ dependencies{
     annotationProcessor("org.projectlombok:lombok")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
+    implementation("org.springframework.cloud:spring-cloud-loadbalancer")
     implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery")
     implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config")
     implementation("com.alibaba.cloud:spring-cloud-alibaba-sentinel")
     implementation("com.alibaba.cloud:spring-cloud-alibaba-sentinel-gateway")
+    implementation("com.alibaba.csp:sentinel-datasource-nacos")
 }
-
