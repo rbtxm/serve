@@ -6,14 +6,15 @@ springdoc-openapi-ui = "1.7.0"
 hikaricp = "5.0.1"
 fastjson2 = "2.0.26"
 commonslang3 = "3.12.0"
-springsecurityjwt = "1.1.1.RELEASE"
+dynamicdatasourcespringbootstarter = "3.6.1"
+jjwtapi="0.11.5"
 
 [libraries]
 springdoc-openapi-ui = {group = "org.springdoc",name="springdoc-openapi-ui", version.ref = "springdoc-openapi-ui" }
 hikaricp = {group = "com.zaxxer",name="HikariCP", version.ref = "hikaricp" }
 fastjson2 = {group = "com.alibaba.fastjson2",name="fastjson2", version.ref = "fastjson2" }
 commons-lang3 = {group = "org.apache.commons",name="commons-lang3", version.ref = "commonslang3" }
-spring-security-jwt = {group="org.springframework.security",name="spring-security-jwt",version.ref="springsecurityjwt"}
-
+dynamic-datasource-spring-boot-starter = {group="com.baomidou",name="dynamic-datasource-spring-boot-starter",version.ref="dynamicdatasourcespringbootstarter"}
+jjwt-api = {group="io.jsonwebtoken",name="jjwt-api",version.ref="jjwtapi"}
 
 [plugins]
