@@ -1,7 +1,7 @@
 [versions]
 springboot = "3.0.5"
 springcloud = "2022.0.1"
-springcloudalibaba = "2022.0.0.0-RC1"
+springcloudalibaba = "2022.0.0.0-RC2"
 springdoc-openapi-ui = "1.7.0"
 hikaricp = "5.0.1"
 fastjson2 = "2.0.26"
