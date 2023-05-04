@@ -1,5 +1,6 @@
 var springCloud: String = libs.versions.springcloud.get()
 var springCloudAlibaba: String = libs.versions.springcloudalibaba.get()
+var lombok: String = libs.versions.lombok.get()
 subprojects{
 
     dependencyManagement{
@@ -10,8 +11,8 @@ subprojects{
     }
 
     dependencies{
-        compileOnly("org.projectlombok:lombok")
-        annotationProcessor("org.projectlombok:lombok")
+        compileOnly("org.projectlombok:lombok:${lombok}")
+        annotationProcessor("org.projectlombok:lombok:${lombok}")
         implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery")
