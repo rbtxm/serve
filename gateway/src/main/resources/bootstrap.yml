@@ -2,22 +2,19 @@ spring:
   application:
     name: gateway
   profiles:
-    active: ${SPRING_PROFILES_ACTIVE)
+    active: ${environment}
   cloud:
     nacos:
-      username: nacos
-      password: nacos
+      username: ${username}
+      password: ${password}
       discovery:
-        server-addr: 10.211.55.4:8848
+        server-addr: ${server-addr}
         namespace: ${spring.profiles.active}
+        group: ${group}
       config:
-        server-addr: 10.211.55.4:8848
+        server-addr: ${server-addr}
         namespace: ${spring.profiles.active}
-        file-extension: yaml
+        group: ${group}
+        file-extension: ${file}
         shared-configs:
-          - data
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-
-logging:
-  file:
-    name: logs/${spring.application.name}/all_in_one.log

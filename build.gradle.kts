@@ -1,5 +1,3 @@
-import org.springframework.boot.gradle.tasks.run.BootRun
-
 @Suppress("DSL_SCOPE_VIOLATION")
 buildscript{
 
@@ -42,7 +40,4 @@ subprojects{
         useJUnitPlatform()
     }
 
-    tasks.named<BootRun>("bootRun") {
-        environment("SPRING_PROFILES_ACTIVE", "dev")
-    }
 }
