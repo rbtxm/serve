@@ -4,12 +4,7 @@ dependencyManagement{
         mavenBom( "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${libs.versions.springcloudalibaba.get()}")
     }
 }
-
 dependencies{
-    implementation(project(":common:core"))
-    implementation(project(":common:redis"))
-    implementation(project(":common:doc"))
-    implementation(project(":common:log"))
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")

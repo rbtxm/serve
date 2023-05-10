@@ -1,3 +1,7 @@
+# Tomcat
+server:
+  port: 8555
+
 spring:
   application:
     name: gateway

@@ -9,7 +9,6 @@ buildscript{
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.springboot.get()}")
     }
 }
-
 subprojects{
     apply{
         plugin("java")
@@ -39,5 +38,8 @@ subprojects{
     tasks.withType<Test> {
         useJUnitPlatform()
     }
+
+//    val environment = project.property("environment") as String
+
 
 }
