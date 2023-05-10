@@ -40,6 +40,7 @@ subprojects{
     }
 
 //    val environment = project.property("environment") as String
+//    val environment: String by project
 
 
 }
