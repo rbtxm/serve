@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: dev-guan
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 172.16.20.108:8848
+        namespace: ${spring.profiles.active}
+
+      config:
+        server-addr: 172.16.20.108:8848
+        namespace: ${spring.profiles.active}
+
+        file-extension: yml
