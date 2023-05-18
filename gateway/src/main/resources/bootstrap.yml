@@ -1,9 +1,24 @@
+# Tomcat
 server:
   port: 8555
 
 spring:
   application:
-    name: smart-tower-security
-  config:
-    import:
-      - optional:classpath:common.yml
+    name: gateway
+  profiles:
+    active: ${environment}
+  cloud:
+    nacos:
+      username: ${username}
+      password: ${password}
+      discovery:
+        server-addr: ${server-addr}
+        namespace: ${spring.profiles.active}
+        group: ${group}
+      config:
+        server-addr: ${server-addr}
+        namespace: ${spring.profiles.active}
+        group: ${group}
+        file-extension: ${file}
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

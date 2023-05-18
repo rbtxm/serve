@@ -2,8 +2,6 @@ rootProject.name = "serve"
 include("gateway")
 include("auth")
 include("common")
-include("common:config")
-findProject(":common:config")?.name = "config"
 include("common:core")
 findProject(":common:core")?.name = "core"
 include("common:datasource")
