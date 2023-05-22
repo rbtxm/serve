@@ -6,7 +6,7 @@ spring:
   application:
     name: gateway
   profiles:
-    active: ${appName}
+    active: ${environment}
   cloud:
     nacos:
       username: ${username}
@@ -14,11 +14,8 @@ spring:
       discovery:
         server-addr: ${server-addr}
         namespace: ${spring.profiles.active}
-        group: ${group}
+
       config:
         server-addr: ${server-addr}
         namespace: ${spring.profiles.active}
-        group: ${group}
-        file-extension: ${file}
-        shared-configs:
-          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
