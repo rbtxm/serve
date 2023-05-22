@@ -1,5 +1,9 @@
 import org.gradle.internal.classpath.Instrumented.systemProperty
 
+lateinit var appName: String
+
+
+
 @Suppress("DSL_SCOPE_VIOLATION")
 buildscript{
 
@@ -10,8 +14,30 @@ buildscript{
     dependencies{
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.springboot.get()}")
     }
-
 }
+val activeProfile: String = System.getProperty("activeProfile") ?: "dev"
+//apply {
+//    from("gradle.properties")
+//}
+tasks.register("dev") {
+    group = "profile"
+    doFirst {
+        System.setProperty("activeProfile", "dev")
+    }
+    doLast{
+        println("activeProfile: ${System.getProperty("activeProfile")}")
+    }
+}
+tasks.register("prod") {
+    group = "profile"
+    doFirst {
+        System.setProperty("activeProfile", "prod")
+    }
+    doLast{
+        println("activeProfile: ${System.getProperty("activeProfile")}")
+    }
+}
+// 切换环境, 根据切换的环境的，获取到对应的配置文件
 
 subprojects{
     apply{

@@ -1,6 +1,6 @@
 [versions]
 # 统一依赖管理
-springboot = "3.0.6"
+springboot = "3.1.0"
 springcloud = "2022.0.2"
 springcloudalibaba = "2022.0.0.0-RC2"
 # Web 相关
