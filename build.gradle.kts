@@ -1,13 +1,12 @@
-import org.gradle.internal.classpath.Instrumented.systemProperty
-
-lateinit var appName: String
-
-
+plugins {
+    id("org.kordamp.gradle.java-project") version "0.51.0"
+}
 
 @Suppress("DSL_SCOPE_VIOLATION")
 buildscript{
 
     repositories{
+        gradlePluginPortal()
         mavenCentral()
     }
 
@@ -47,5 +46,4 @@ subprojects {
     tasks.withType<Test> {
         useJUnitPlatform()
     }
-
 }
