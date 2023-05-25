@@ -9,8 +9,6 @@ subprojects{
 
     dependencies{
         implementation(project(":common:core"))
-        compileOnly("org.projectlombok:lombok")
-        annotationProcessor("org.projectlombok:lombok")
         implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
     }
 }

@@ -11,9 +11,13 @@ springdoc-openapi-ui = "1.7.0"
 # 工具类相关
 lombok = "1.18.26"
 # 第三方云服务相关
+# 环境
+profiles = "0.51.0"
 
 [libraries]
 # Web 相关
 springdoc-openapi-ui = {group = "org.springdoc",name="springdoc-openapi-ui", version.ref = "springdoc-openapi-ui" }
 
 [plugins]
+# 环境
+profiles = { id = "org.kordamp.gradle.profiles", version.ref = "profiles"}

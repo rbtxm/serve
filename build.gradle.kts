@@ -1,8 +1,8 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("org.kordamp.gradle.java-project") version "0.51.0"
+    alias(libs.plugins.profiles)
 }
 
-@Suppress("DSL_SCOPE_VIOLATION")
 buildscript{
 
     repositories{
@@ -19,11 +19,27 @@ subprojects {
     apply {
         plugin("java")
         plugin("org.springframework.boot")
+        plugin ( "org.kordamp.gradle.profiles")
         plugin("io.spring.dependency-management")
     }
     repositories {
         google()
         mavenCentral()
+    }
+
+    profiles{
+// build.gradle.kts 或其他子模块的构建文件
+
+        profile("development") {
+            // 开发环境配置
+            // ...
+        }
+
+        profile("production") {
+            // 生产环境配置
+            // ...
+        }
+
     }
 
     // 配置项目信息
