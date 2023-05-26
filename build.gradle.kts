@@ -13,6 +13,7 @@ buildscript{
     dependencies{
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.springboot.get()}")
     }
+
 }
 
 subprojects {
@@ -27,24 +28,13 @@ subprojects {
         mavenCentral()
     }
 
-    profiles{
-// build.gradle.kts 或其他子模块的构建文件
-
-        profile("development") {
-            // 开发环境配置
-            // ...
-        }
-
-        profile("production") {
-            // 生产环境配置
-            // ...
-        }
-
-    }
-
     // 配置项目信息
     group = "com.rbtxm"
     version = "1.0.0-SNAPSHOT"
+
+    profiles {
+
+    }
 
 
     // jdk版本
