@@ -22,19 +22,19 @@ rootDir.walkTopDown().maxDepth(2).forEach { dir ->
 }
 
 fun includeProject(projectDir: File){
-    val  projectName = projectDir.name
 
-    val buildFileName = "${projectName}.gradle.kts"
+    val buildFileName = "${projectDir.name}.gradle.kts"
 
-    val baseDir = File(settingsDir, projectName)
-    val subProjectDir = File(baseDir, projectName)
-    assert(subProjectDir.isDirectory)
-    assert(File(subProjectDir, buildFileName).isFile)
+    assert(projectDir.isDirectory)
+    assert(File(projectDir, buildFileName).isFile)
 
-    val parentProjectName = projectDir.parentFile.name
+    val projectName: String = if (projectDir.parentFile.name == rootDir.name) {
+        projectDir.name
+    } else {
+        "${projectDir.parentFile.name}:${projectDir.name}"
+    }
 
-    include(if (parentProjectName.equals(rootDir.name)) projectName else "${parentProjectName}:${projectName}")
-    project(if (parentProjectName.equals(rootDir.name)) ":${projectName}" else ":${parentProjectName}:${projectName}").projectDir = subProjectDir
-    project(if (parentProjectName.equals(rootDir.name)) ":${projectName}" else ":${parentProjectName}:${projectName}").buildFileName = buildFileName
-
+    include(projectName)
+    project(":${projectName}").projectDir = projectDir
+    project(":${projectName}").buildFileName = buildFileName
 }
