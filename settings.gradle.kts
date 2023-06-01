@@ -13,20 +13,28 @@ pluginManagement {
 rootProject.name = "serve"
 
 rootDir.walkTopDown().maxDepth(2).forEach { dir ->
-    println(dir.name)
-    val buildFile = File(dir, "${dir.name}.gradle.kts")
-    if (buildFile.exists()) {
-        includeProject(dir.name)
+    if (dir.isDirectory && dir != rootDir) {
+        val buildFile = File(dir, "${dir.name}.gradle.kts")
+        if (buildFile.exists()) {
+            includeProject(dir)
+        }
     }
 }
 
-fun includeProject(projectName: String) {
-    val baseDir = File(settingsDir, projectName)
-    val projectDir = File(baseDir, projectName)
+fun includeProject(projectDir: File){
+    val  projectName = projectDir.name
+
     val buildFileName = "${projectName}.gradle.kts"
-    assert(projectDir.isDirectory)
-    assert(File(projectDir, buildFileName).isFile)
-    include(projectName)
-    project(":${projectName}").projectDir = projectDir
-    project(":${projectName}").buildFileName = buildFileName
+
+    val baseDir = File(settingsDir, projectName)
+    val subProjectDir = File(baseDir, projectName)
+    assert(subProjectDir.isDirectory)
+    assert(File(subProjectDir, buildFileName).isFile)
+
+    val parentProjectName = projectDir.parentFile.name
+
+    include(if (parentProjectName.equals(rootDir.name)) projectName else "${parentProjectName}:${projectName}")
+    project(if (parentProjectName.equals(rootDir.name)) ":${projectName}" else ":${parentProjectName}:${projectName}").projectDir = subProjectDir
+    project(if (parentProjectName.equals(rootDir.name)) ":${projectName}" else ":${parentProjectName}:${projectName}").buildFileName = buildFileName
+
 }
