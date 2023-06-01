@@ -31,6 +31,8 @@ fun includeProject(projectDir: File){
     val projectName: String = if (projectDir.parentFile.name == rootDir.name) {
         projectDir.name
     } else {
+
+
         "${projectDir.parentFile.name}:${projectDir.name}"
     }
 
