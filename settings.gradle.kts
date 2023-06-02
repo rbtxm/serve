@@ -1,15 +1,3 @@
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-    }
-    resolutionStrategy {
-        eachPlugin {
-            if (requested.id.id == "org.kordamp.gradle.profiles") {
-                useModule("org.kordamp.gradle.profiles:org.kordamp.gradle.profiles.gradle.plugin:${requested.version}")
-            }
-        }
-    }
-}
 rootProject.name = "serve"
 
 rootDir.walkTopDown().maxDepth(2).forEach { dir ->

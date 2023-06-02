@@ -1,8 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION")
-plugins {
-    alias(libs.plugins.profiles)
-}
-
 buildscript{
 
     repositories{
@@ -20,7 +15,6 @@ subprojects {
     apply {
         plugin("java")
         plugin("org.springframework.boot")
-        plugin ( "org.kordamp.gradle.profiles")
         plugin("io.spring.dependency-management")
     }
     repositories {
@@ -32,9 +26,6 @@ subprojects {
     group = "com.rbtxm"
     version = "1.0.0-SNAPSHOT"
 
-    profiles {
-
-    }
 
 
     // jdk版本
