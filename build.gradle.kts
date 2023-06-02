@@ -6,7 +6,7 @@ buildscript{
     }
 
     dependencies{
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.springboot.get()}")
+        classpath(libs.plugins.spring.boot.gradle.plugin.get().toString())
     }
 
 }
