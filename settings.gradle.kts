@@ -21,7 +21,7 @@ rootDir.walkTopDown().maxDepth(2).forEach { dir ->
     }
 }
 
-fun includeProject(projectDir: File){
+fun includeProject(projectDir: File) {
 
     val buildFileName = "${projectDir.name}.gradle.kts"
 
@@ -31,8 +31,6 @@ fun includeProject(projectDir: File){
     val projectName: String = if (projectDir.parentFile.name == rootDir.name) {
         projectDir.name
     } else {
-
-
         "${projectDir.parentFile.name}:${projectDir.name}"
     }
 
