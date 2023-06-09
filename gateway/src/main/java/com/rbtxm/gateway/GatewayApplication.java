@@ -3,12 +3,13 @@ package com.rbtxm.gateway;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/*
- * @Description:
- * @Author: guanxiangkai
- * @CreatedTime: 2023-03-15 00:16:00:16
- * @Version: 1.0.0
- */
+/**
+ * 网关路由启动器
+ *
+ * @author guanxiangkai
+ * @version 1.0
+ * @since 2023年06月07日 星期三 14时29分18秒
+ **/
 @SpringBootApplication
 public class GatewayApplication {
     public static void main(String[] args) {
@@ -16,5 +17,3 @@ public class GatewayApplication {
         System.out.println("网关路由启动成功");
     }
 }
-
-

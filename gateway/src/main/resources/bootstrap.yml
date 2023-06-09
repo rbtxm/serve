@@ -1,21 +1,52 @@
+## Tomcat
+#server:
+#  port: 8555
+#
+#spring:
+#  application:
+#    name: gateway
+#  profiles:
+#    active: ${environment}
+#  cloud:
+#    nacos:
+#      username: ${username}
+#      password: ${password}
+#      discovery:
+#        server-addr: ${server-addr}
+#        namespace: ${spring.profiles.active}
+#
+#      config:
+#        server-addr: ${server-addr}
+#        namespace: ${spring.profiles.active}
+#
 # Tomcat
 server:
-  port: 8555
+  port: 8080
 
+# Spring
 spring:
   application:
-    name: gateway
+    # 应用名称
+    name: smart-tower-gateway
   profiles:
+    # 环境配置
     active: ${environment}
   cloud:
     nacos:
-      username: ${username}
-      password: ${password}
       discovery:
-        server-addr: ${server-addr}
+        # 服务注册地址
+        server-addr: ${yourProperty.server}
         namespace: ${spring.profiles.active}
-
       config:
-        server-addr: ${server-addr}
+        # 配置中心地址
+        server-addr: ${yourProperty.server}
         namespace: ${spring.profiles.active}
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
 
+logging:
+  file:
+    name: logs/${spring.application.name}/all_in_one.log

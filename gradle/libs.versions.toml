@@ -9,13 +9,19 @@ springdoc-openapi-ui = "1.7.0"
 # RPC 相关
 # 监控相关
 # 工具类相关
+dependency-management= "1.1.0"
 lombok = "1.18.26"
-# 第三方云服务相关
 
 [libraries]
+# 统一依赖管理
+spring-cloud-dependencies = {group = "org.springframework.cloud",name="spring-cloud-dependencies", version.ref = "springcloud" }
+spring-cloud-alibaba-dependencies = {group = "com.alibaba.cloud",name="spring-cloud-alibaba-dependencies", version.ref = "springcloudalibaba" }
 # Web 相关
 springdoc-openapi-ui = {group = "org.springdoc",name="springdoc-openapi-ui", version.ref = "springdoc-openapi-ui" }
+# 工具类相关
+lombok = {group = "org.projectlombok",name="lombok", version.ref = "lombok" }
 
 [plugins]
-# 环境
+# 统一依赖管理
 spring-boot-gradle-plugin = { id = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springboot"}
+dependency-management = { id = "io.spring.dependency-management", version.ref = "dependency-management" }

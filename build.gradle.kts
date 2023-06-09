@@ -1,14 +1,12 @@
-buildscript{
-
-    repositories{
+buildscript {
+    repositories {
         gradlePluginPortal()
         mavenCentral()
     }
 
-    dependencies{
+    dependencies {
         classpath(libs.plugins.spring.boot.gradle.plugin.get().toString())
     }
-
 }
 
 subprojects {
@@ -17,6 +15,7 @@ subprojects {
         plugin("org.springframework.boot")
         plugin("io.spring.dependency-management")
     }
+
     repositories {
         google()
         mavenCentral()
@@ -24,9 +23,7 @@ subprojects {
 
     // 配置项目信息
     group = "com.rbtxm"
-    version = "1.0.0-SNAPSHOT"
-
-
+    version = "1.0"
 
     // jdk版本
     tasks.withType<JavaCompile> {
@@ -43,4 +40,5 @@ subprojects {
     tasks.withType<Test> {
         useJUnitPlatform()
     }
+
 }

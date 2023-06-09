@@ -1,12 +1,12 @@
-var springCloud: String = libs.versions.springcloud.get()
-var springCloudAlibaba: String = libs.versions.springcloudalibaba.get()
-var lombok: String = libs.versions.lombok.get()
+var springCloud: String = libs.spring.cloud.dependencies.get().toString()
+var springCloudAlibaba: String = libs.spring.cloud.alibaba.dependencies.get().toString()
+var lombok: String =libs.lombok.get().toString()
 subprojects{
 
     dependencyManagement{
         imports{
-            mavenBom( "org.springframework.cloud:spring-cloud-dependencies:${springCloud}")
-            mavenBom( "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibaba}")
+            mavenBom(springCloud)
+            mavenBom(springCloudAlibaba)
         }
     }
 
@@ -19,7 +19,7 @@ subprojects{
         implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery")
         implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config")
 
-        compileOnly("org.projectlombok:lombok:${lombok}")
-        annotationProcessor("org.projectlombok:lombok:${lombok}")
+        compileOnly(lombok)
+        annotationProcessor(lombok)
     }
 }
