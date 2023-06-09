@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.*
+
 buildscript {
     repositories {
         gradlePluginPortal()
@@ -40,5 +43,15 @@ subprojects {
     tasks.withType<Test> {
         useJUnitPlatform()
     }
+    tasks.named<Copy>("processResources") {
+        val bootstrapYml = file("${projectDir}/src/main/resources/bootstrap.yml")
+        if(bootstrapYml.exists()){
+            from(projectDir)
+            include("/src/main/resources/bootstrap.yml")
+            into("${projectDir}/src/build/resources/main/bootstrap.yml")
+            expand(project.properties)
+        }
+    }
 
 }
+

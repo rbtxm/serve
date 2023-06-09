@@ -22,4 +22,4 @@ spring:
 
 logging:
   file:
-    name: logs/${spring.application.name}/all_in_one.log
+    name: logs/system/all_in_one.log

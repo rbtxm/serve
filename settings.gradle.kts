@@ -26,3 +26,6 @@ fun includeProject(projectDir: File) {
     project(":${projectName}").projectDir = projectDir
     project(":${projectName}").buildFileName = buildFileName
 }
+
+
+
