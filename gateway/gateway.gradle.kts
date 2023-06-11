@@ -1,3 +1,6 @@
+plugins{
+    id(libs.plugins.lombok.plugin.get().pluginId) version "${libs.plugins.lombok.plugin.get().version}"
+}
 dependencyManagement {
     imports {
         mavenBom(libs.spring.cloud.dependencies.get().toString())
@@ -13,9 +16,6 @@ dependencies {
     implementation(libs.spring.cloud.loadbalancer.get().toString())
     implementation(libs.spring.cloud.starter.alibaba.nacos.discovery.get().toString())
     implementation(libs.spring.cloud.starter.alibaba.nacos.config.get().toString())
-
-    compileOnly(libs.lombok.get().toString())
-    annotationProcessor(libs.lombok.get().toString())
 
     testImplementation(platform(libs.junit.bom.get().toString()))
     testImplementation(libs.junit.jupiter.get().toString())

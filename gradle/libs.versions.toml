@@ -10,7 +10,7 @@ springdoc-openapi-ui = "1.7.0"
 # 监控相关
 # 工具类相关
 dependency-management= "1.1.0"
-lombok = "1.18.26"
+lombok-plugin = "8.0.1"
 # 测试相关
 junit = "5.9.3"
 
@@ -21,7 +21,6 @@ spring-cloud-alibaba-dependencies = {group = "com.alibaba.cloud",name="spring-cl
 # Web 相关
 springdoc-openapi-ui = {group = "org.springdoc",name="springdoc-openapi-ui", version.ref = "springdoc-openapi-ui" }
 # 工具类相关
-lombok = {group = "org.projectlombok",name="lombok", version.ref = "lombok" }
 # 测试相关
 junit-bom=  { group = "org.junit", name = "junit-bom", version.ref = "junit"}
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter"}
@@ -43,3 +42,4 @@ spring-cloud-alibaba-sentinel-gateway = { group = "com.alibaba.cloud", name = "s
 spring-boot-gradle-plugin = { id = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springboot"}
 # 工具类相关
 dependency-management = { id = "io.spring.dependency-management", version.ref = "dependency-management" }
+lombok-plugin = { id = "io.freefair.lombok", version.ref = "lombok-plugin" }
