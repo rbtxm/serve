@@ -1,21 +1,4 @@
-var springCloud: String = libs.spring.cloud.dependencies.get().toString()
-var springCloudAlibaba: String = libs.spring.cloud.alibaba.dependencies.get().toString()
-var lombokPlugin:String = libs.plugins.lombok.plugin.get().pluginId
-
-plugins{
-    id(libs.plugins.lombok.plugin.get().pluginId) version "${libs.plugins.lombok.plugin.get().version}"
-}
 subprojects{
-    apply{
-        plugin(lombokPlugin)
-    }
-    dependencyManagement{
-        imports{
-            mavenBom(springCloud)
-            mavenBom(springCloudAlibaba)
-        }
-    }
-
     dependencies{
         implementation("org.springframework.boot:spring-boot-starter-web"){
             exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")

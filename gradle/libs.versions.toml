@@ -1,7 +1,7 @@
 [versions]
 # 统一依赖管理
 springboot = "3.1.0"
-springcloud = "2022.0.3"
+springcloud = "2022.0.1"
 springcloudalibaba = "2022.0.0.0-RC2"
 # Web 相关
 springdoc-openapi-ui = "1.7.0"

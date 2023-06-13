@@ -1,12 +1,3 @@
-plugins{
-    id(libs.plugins.lombok.plugin.get().pluginId) version "${libs.plugins.lombok.plugin.get().version}"
-}
-dependencyManagement {
-    imports {
-        mavenBom(libs.spring.cloud.dependencies.get().toString())
-        mavenBom(libs.spring.cloud.alibaba.dependencies.get().toString())
-    }
-}
 dependencies {
     annotationProcessor(libs.spring.boot.configuration.processor.get().toString())
     implementation(libs.spring.boot.starter.data.redis.reactive.get().toString())

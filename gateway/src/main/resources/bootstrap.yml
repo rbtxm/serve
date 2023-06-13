@@ -1,6 +1,6 @@
-
+# Tomcat
 server:
-  port: 8181
+  port: 8282
 
 # Spring
 spring:
@@ -9,23 +9,21 @@ spring:
     name: smart-tower-gateway
   profiles:
     # 环境配置
-    active: ${environment}
+    active: ${active}
   cloud:
     nacos:
+      username: ${username}
+      password: ${password}
       discovery:
         # 服务注册地址
-        server-addr: 172.16.20.108:8848
-        namespace: dev-tan
+        server-addr: ${server-addr}
+        namespace: ${namespace}
       config:
         # 配置中心地址
-        server-addr: 172.16.20.108:8848
-        namespace: dev-tan
+        server-addr: ${server-addr}
+        namespace: ${namespace}
         # 配置文件格式
-        file-extension: yml
+        file-extension: ${file-extension}
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-
-logging:
-  file:
-    name: logs/${spring.application.name}/all_in_one.log
