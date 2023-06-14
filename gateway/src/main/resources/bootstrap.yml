@@ -16,14 +16,14 @@ spring:
       password: ${password}
       discovery:
         # 服务注册地址
-        server-addr: ${server-addr}
+        server-addr: ${serverAddr}
         namespace: ${namespace}
       config:
         # 配置中心地址
-        server-addr: ${server-addr}
+        server-addr: ${serverAddr}
         namespace: ${namespace}
         # 配置文件格式
-        file-extension: ${file-extension}
+        file-extension: ${fileExtension}
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

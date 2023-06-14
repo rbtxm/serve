@@ -70,6 +70,7 @@ subprojects {
     tasks.named<Copy>("processResources") {
         val bootstrapYml = File("${projectDir}/src/main/resources/bootstrap.yml")
         if (bootstrapYml.exists()) {
+            delete("${project.buildDir}")
             from(projectDir) {
                 include("src/main/resources/bootstrap.yml")
             }
