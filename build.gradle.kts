@@ -1,53 +1,25 @@
 import java.util.*
 
 buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-    }
 
     dependencies {
         classpath(libs.plugins.spring.boot.gradle.plugin.get().toString())
     }
-
 }
 
 plugins {
+    java
     id(libs.plugins.dependency.management.get().pluginId) version "${libs.plugins.dependency.management.get().version}"
     id(libs.plugins.lombok.plugin.get().pluginId) version "${libs.plugins.lombok.plugin.get().version}"
 }
 
-var springCloudDependencies: String = libs.spring.cloud.dependencies.get().toString()
-var springCloudAlibabaDependencies: String = libs.spring.cloud.alibaba.dependencies.get().toString()
 
-val gradleProperties: MutableMap<String, Any?> = project.rootProject.file("gradle.properties")
-        .takeIf { it.exists() }
-        ?.let { propertiesFile ->
-            Properties().apply {
-                propertiesFile.inputStream().use { load(it) }
-            }
-        }?.entries?.associate { (key, value) -> key.toString() to value }?.toMutableMap()
-        ?: mutableMapOf()
-
-subprojects {
+allprojects{
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
-    apply {
-        plugin("java")
-        plugin("io.freefair.lombok")
-        plugin("org.springframework.boot")
-        plugin("io.spring.dependency-management")
-    }
-
-    dependencyManagement {
-        imports {
-            mavenBom(springCloudDependencies)
-            mavenBom(springCloudAlibabaDependencies)
-        }
-    }
-
     // 配置项目信息
     group = "com.rbtxm"
     version = "1.0"
@@ -67,6 +39,42 @@ subprojects {
     tasks.withType<Test> {
         useJUnitPlatform()
     }
+
+}
+
+var springBootStarterTest: String = libs.spring.boot.starter.test.get().toString()
+var springCloudDependencies: String = libs.spring.cloud.dependencies.get().toString()
+var springCloudAlibabaDependencies: String = libs.spring.cloud.alibaba.dependencies.get().toString()
+
+val gradleProperties: MutableMap<String, Any?> = project.rootProject.file("gradle.properties")
+        .takeIf { it.exists() }
+        ?.let { propertiesFile ->
+            Properties().apply {
+                propertiesFile.inputStream().use { load(it) }
+            }
+        }?.entries?.associate { (key, value) -> key.toString() to value }?.toMutableMap()
+        ?: mutableMapOf()
+
+subprojects {
+
+    apply {
+        plugin("java")
+        plugin("io.freefair.lombok")
+        plugin("org.springframework.boot")
+        plugin("io.spring.dependency-management")
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom(springCloudDependencies)
+            mavenBom(springCloudAlibabaDependencies)
+        }
+    }
+
+    dependencies{
+        testImplementation(springBootStarterTest)
+    }
+
     tasks.named<Copy>("processResources") {
         val bootstrapYml = File("${projectDir}/src/main/resources/bootstrap.yml")
         if (bootstrapYml.exists()) {
@@ -86,8 +94,10 @@ subprojects {
                 }
                 file.writeText(modifiedContent.toString())
             }
+
         }
     }
+
 }
 fun replaceProperties(line: String, properties: Map<String, *>): String {
     var replacedLine = line

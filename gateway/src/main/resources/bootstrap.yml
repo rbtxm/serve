@@ -6,10 +6,10 @@ server:
 spring:
   application:
     # 应用名称
-    name: smart-tower-gateway
+    name: ${spring.application.name}
   profiles:
     # 环境配置
-    active: ${active}
+    active: ${spring.profiles.active}
   cloud:
     nacos:
       username: ${username}
