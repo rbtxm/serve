@@ -24,14 +24,12 @@ allprojects{
     group = "com.rbtxm"
     version = "1.0"
 
-    // jdk版本
+
     tasks.withType<JavaCompile> {
+        // jdk版本
         sourceCompatibility = "17"
         targetCompatibility = "17"
-    }
-
-    // utf-8编码
-    tasks.withType<JavaCompile> {
+        // utf-8编码
         options.encoding = "UTF-8"
     }
 
@@ -46,7 +44,8 @@ var springBootStarterTest: String = libs.spring.boot.starter.test.get().toString
 var springCloudDependencies: String = libs.spring.cloud.dependencies.get().toString()
 var springCloudAlibabaDependencies: String = libs.spring.cloud.alibaba.dependencies.get().toString()
 
-val gradleProperties: MutableMap<String, Any?> = project.rootProject.file("gradle.properties")
+
+val gradleProperties: MutableMap<String, Any?> = project.rootProject.file("application.properties")
         .takeIf { it.exists() }
         ?.let { propertiesFile ->
             Properties().apply {
@@ -74,11 +73,11 @@ subprojects {
     dependencies{
         testImplementation(springBootStarterTest)
     }
-
     tasks.named<Copy>("processResources") {
         val bootstrapYml = File("${projectDir}/src/main/resources/bootstrap.yml")
         if (bootstrapYml.exists()) {
             delete("${project.buildDir}")
+            gradleProperties["projectName"] = project.name
             from(projectDir) {
                 include("src/main/resources/bootstrap.yml")
             }
@@ -97,8 +96,10 @@ subprojects {
 
         }
     }
-
 }
+
+
+
 fun replaceProperties(line: String, properties: Map<String, *>): String {
     var replacedLine = line
     for ((key, value) in properties) {
