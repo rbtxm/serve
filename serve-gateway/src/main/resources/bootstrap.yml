@@ -13,9 +13,6 @@ spring:
     active: ${active}
 
   cloud:
-    import:
-      - optional:classpath:common.yml
-
     nacos:
       username: ${username}
       password: ${password}

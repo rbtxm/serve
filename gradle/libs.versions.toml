@@ -11,6 +11,17 @@ springdoc-openapi-ui = "1.7.0"
 # 工具类相关
 dependency-management= "1.1.0"
 lombok-plugin = "8.0.1"
+commons-lang3 = "3.12.0"
+commons-io="2.13.0"
+commons-fileupload="1.5"
+guava = "32.0.1-jre"
+hutool-core = "5.8.20"
+# Excel 相关
+poi-ooxml = "5.2.3"
+# 线程相关
+transmittable-thread-local = "2.14.2"
+
+
 
 [libraries]
 # 统一依赖管理
@@ -19,7 +30,11 @@ spring-cloud-alibaba-dependencies = {group = "com.alibaba.cloud",name="spring-cl
 # Web 相关
 springdoc-openapi-ui = {group = "org.springdoc",name="springdoc-openapi-ui", version.ref = "springdoc-openapi-ui" }
 # 工具类相关
-
+commons-lang3 = {group = "org.apache.commons",name="commons-lang3", version.ref = "commons-lang3" }
+commons-io = {group = "commons-io",name="commons-io", version.ref = "commons-io" }
+commons-fileupload= {group = "commons-fileupload",name="commons-fileupload", version.ref = "commons-fileupload" }
+guava = {group = "com.google.guava",name="guava", version.ref = "guava" }
+hutool-core = {group = "cn.hutool",name="hutool-core", version.ref = "hutool-core" }
 # 注解器
 spring-boot-configuration-processor = { group = "org.springframework.boot", name = "spring-boot-configuration-processor"}
 spring-boot-starter-data-redis-reactive = { group = "org.springframework.boot", name = "spring-boot-starter-data-redis-reactive"}
@@ -27,6 +42,7 @@ spring-boot-starter-actuator = { group = "org.springframework.boot", name = "spr
 spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web"}
 spring-boot-starter-tomcat = { group = "org.springframework.boot", name = "spring-boot-starter-tomcat"}
 spring-boot-starter-undertow = { group = "org.springframework.boot", name = "spring-boot-starter-undertow"}
+spring-boot-starter-validation= { group = "org.springframework.boot", name = "spring-boot-starter-validation"}
 spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test"}
 spring-cloud-starter-gateway = { group = "org.springframework.cloud", name = "spring-cloud-starter-gateway"}
 spring-cloud-starter-bootstrap = { group = "org.springframework.cloud", name = "spring-cloud-starter-bootstrap"}
@@ -34,6 +50,12 @@ spring-cloud-loadbalancer = { group = "org.springframework.cloud", name = "sprin
 spring-cloud-starter-alibaba-nacos-discovery = { group = "com.alibaba.cloud", name = "spring-cloud-starter-alibaba-nacos-discovery"}
 spring-cloud-starter-alibaba-nacos-config = { group = "com.alibaba.cloud", name = "spring-cloud-starter-alibaba-nacos-config"}
 spring-cloud-alibaba-sentinel-gateway = { group = "com.alibaba.cloud", name = "spring-cloud-alibaba-sentinel-gateway"}
+
+# Excel 相关
+poi-ooxml = { group = "org.apache.poi", name = "poi-ooxml", version.ref = "poi-ooxml" }
+
+# 线程相关
+transmittable-thread-local = { group = "com.alibaba", name = "transmittable-thread-local", version.ref = "transmittable-thread-local" }
 
 [bundles]
 nacos-config = ["spring-boot-starter-actuator","spring-cloud-starter-bootstrap","spring-cloud-starter-alibaba-nacos-discovery", "spring-cloud-starter-alibaba-nacos-config"]
