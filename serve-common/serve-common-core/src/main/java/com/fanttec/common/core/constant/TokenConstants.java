@@ -5,10 +5,9 @@ package com.fanttec.common.core.constant;
  *
  * @author guanxiangkai
  * @version 1.0
- * @since 2023年06月20日 星期二 15时43分01秒
+ * @since 2023年06月21日 星期三 16时37分18秒
  **/
-public class TokenConstants
-{
+public class TokenConstants {
     /**
      * 令牌自定义标识
      */
@@ -23,5 +22,4 @@ public class TokenConstants
      * 令牌秘钥
      */
     public final static String SECRET = "abcdefghijklmnopqrstuvwxyz";
-
 }
