@@ -1,3 +1,5 @@
+
+
 dependencies {
     annotationProcessor(libs.spring.boot.configuration.processor.get().toString())
     implementation(libs.spring.cloud.loadbalancer.get().toString())

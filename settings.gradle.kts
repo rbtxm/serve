@@ -16,15 +16,20 @@ fun includeProject(projectDir: File) {
     assert(projectDir.isDirectory)
     assert(File(projectDir, buildFileName).isFile)
 
-    val projectName: String = if (projectDir.parentFile.name == rootDir.name) {
-        projectDir.name
-    } else {
-        "${projectDir.parentFile.name}:${projectDir.name}"
-    }
-
+    val projectName: String = getProjectName(projectDir)
     include(projectName)
     project(":${projectName}").projectDir = projectDir
     project(":${projectName}").buildFileName = buildFileName
+}
+
+// 递归函数
+fun getProjectName(projectDir: File): String {
+    return if (projectDir.parentFile.name == rootDir.name) {
+        projectDir.name
+    } else {
+        val projectName = getProjectName(projectDir.parentFile)
+        "${projectName}:${projectDir.name}"
+    }
 }
 
 

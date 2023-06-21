@@ -1,4 +1,4 @@
-package com.fanttec.common.core.annotation;
+package com.fanttec.common.document.annotation;
 
 import com.fanttec.common.core.utils.poi.ExcelHandlerAdapter;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
@@ -8,7 +8,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
