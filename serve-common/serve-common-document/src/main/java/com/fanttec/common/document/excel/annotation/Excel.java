@@ -1,6 +1,5 @@
 package com.fanttec.common.document.annotation;
 
-import com.fanttec.common.core.utils.poi.ExcelHandlerAdapter;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
 
