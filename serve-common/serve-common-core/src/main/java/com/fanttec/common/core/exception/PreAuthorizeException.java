@@ -1,0 +1,18 @@
+package com.fanttec.common.core.exception;
+
+import java.io.Serial;
+
+/**
+ * 权限异常
+ *
+ * @author guanxiangkai
+ * @version 1.0
+ * @since 2023年06月21日 星期三 17时01分59秒
+ **/
+public class PreAuthorizeException extends RuntimeException {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    public PreAuthorizeException() {
+    }
+}

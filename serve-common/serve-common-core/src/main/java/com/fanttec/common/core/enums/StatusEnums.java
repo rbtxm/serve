@@ -1,5 +1,6 @@
 package com.fanttec.common.core.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -10,6 +11,7 @@ import lombok.Getter;
  * @since 2023年06月21日 星期三 17时11分42秒
  **/
 @Getter
+@AllArgsConstructor
 public enum StatusEnums {
 
     ENABLE(1, "启用"),
@@ -18,9 +20,4 @@ public enum StatusEnums {
     private final int code;
 
     private final String label;
-
-    StatusEnums(int code,String label) {
-        this.code = code;
-        this.label = label;
-    }
 }

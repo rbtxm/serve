@@ -1,5 +1,6 @@
 package com.fanttec.common.core.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -10,6 +11,7 @@ import lombok.Getter;
  * @since 2023年06月21日 星期三 17时03分56秒
  **/
 @Getter
+@AllArgsConstructor
 public enum UserSourceEnums {
 
     SYSTEM(1, "系统"),
@@ -24,10 +26,5 @@ public enum UserSourceEnums {
     private final int code;
 
     private final String label;
-
-    UserSourceEnums(int code,String label) {
-        this.code = code;
-        this.label = label;
-    }
 
 }

@@ -1,5 +1,6 @@
 package com.fanttec.common.core.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.nio.charset.Charset;
@@ -12,6 +13,7 @@ import java.nio.charset.Charset;
  * @since 2023年06月21日 星期三 16时43分05秒
  **/
 @Getter
+@AllArgsConstructor
 public enum HttpStatusEnums {
 
     SUCCESS(200, "操作成功"),
@@ -34,9 +36,4 @@ public enum HttpStatusEnums {
     private final int code;
 
     private final String label;
-
-    HttpStatusEnums(int code,String label) {
-        this.code = code;
-        this.label = label;
-    }
 }

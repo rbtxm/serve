@@ -1,5 +1,6 @@
 package com.fanttec.common.core.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -10,6 +11,7 @@ import lombok.Getter;
  * @since 2023年06月21日 星期三 16时49分17秒
  **/
 @Getter
+@AllArgsConstructor
 public enum HttpTypeEnums {
 
     GET("GET"),
@@ -18,8 +20,4 @@ public enum HttpTypeEnums {
     DELETE("DELETE");
 
     private final String value;
-
-    HttpTypeEnums(String value) {
-        this.value = value;
-    }
 }

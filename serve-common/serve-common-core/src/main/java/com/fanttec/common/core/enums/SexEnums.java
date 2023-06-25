@@ -1,5 +1,6 @@
 package com.fanttec.common.core.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -10,6 +11,7 @@ import lombok.Getter;
  * @since 2023年06月21日 星期三 16时58分02秒
  **/
 @Getter
+@AllArgsConstructor
 public enum SexEnums {
 
     MALE(1, "男"),
@@ -19,8 +21,4 @@ public enum SexEnums {
 
     private final String label;
 
-    SexEnums(int code,String label) {
-        this.code = code;
-        this.label = label;
-    }
 }

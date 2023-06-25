@@ -1,6 +1,8 @@
 package com.fanttec.common.core.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * 时间格式枚举
@@ -10,6 +12,7 @@ import lombok.Getter;
  * @since 2023年06月21日 星期三 16时30分43秒
  **/
 @Getter
+@AllArgsConstructor
 public enum DateEnums {
 
     DATE_FORMAT("yyyy-MM-dd"),
@@ -23,7 +26,4 @@ public enum DateEnums {
 
     private final String value;
 
-    DateEnums(String value) {
-        this.value = value;
-    }
 }

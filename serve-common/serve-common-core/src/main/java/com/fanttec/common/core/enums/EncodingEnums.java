@@ -1,5 +1,6 @@
 package com.fanttec.common.core.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.nio.charset.Charset;
@@ -13,6 +14,7 @@ import java.nio.charset.StandardCharsets;
  * @since 2023年06月21日 星期三 16时29分08秒
  **/
 @Getter
+@AllArgsConstructor
 public enum EncodingEnums {
 
     UTF_8(StandardCharsets.UTF_8),
@@ -23,8 +25,4 @@ public enum EncodingEnums {
     BIG5(Charset.forName("Big5"));
 
     private final Charset charset;
-
-    EncodingEnums(Charset charset) {
-        this.charset = charset;
-    }
 }

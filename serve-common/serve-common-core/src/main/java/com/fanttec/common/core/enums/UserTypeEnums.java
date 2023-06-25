@@ -1,5 +1,6 @@
 package com.fanttec.common.core.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -10,6 +11,7 @@ import lombok.Getter;
  * @since 2023年06月21日 星期三 17时01分59秒
  **/
 @Getter
+@AllArgsConstructor
 public enum UserTypeEnums {
 
     ADMIN(1, "管理员"),
@@ -18,9 +20,4 @@ public enum UserTypeEnums {
     private final int code;
 
     private final String label;
-
-    UserTypeEnums(int code,String label) {
-        this.code = code;
-        this.label = label;
-    }
 }
