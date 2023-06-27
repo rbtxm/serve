@@ -1,4 +1,4 @@
-package com.rbtxm.gateway;
+package com.rbtxm.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 2023年06月07日 星期三 14时29分18秒
  **/
 @SpringBootApplication
-public class GatewayApplication {
+public class AuthApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class, args);
+        SpringApplication.run(AuthApplication.class, args);
         System.out.println("网关路由启动成功");
     }
 }
