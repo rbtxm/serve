@@ -1,0 +1,31 @@
+# Tomcat
+server:
+  port: 8282
+
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: ${projectName}
+
+  profiles:
+    # 环境配置
+    active: ${active}
+
+  cloud:
+    nacos:
+      username: ${username}
+      password: ${password}
+      discovery:
+        # 服务注册地址
+        server-addr: ${serverAddr}
+        namespace: ${namespace}
+      config:
+        # 配置中心地址
+        server-addr: ${serverAddr}
+        namespace: ${namespace}
+        # 配置文件格式
+        file-extension: ${fileExtension}
+        # 共享配置
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

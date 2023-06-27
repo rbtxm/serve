@@ -58,6 +58,7 @@ subprojects {
 
     apply {
         plugin("java")
+        plugin("application")
         plugin("java-library")
         plugin("io.freefair.lombok")
         plugin("org.springframework.boot")
